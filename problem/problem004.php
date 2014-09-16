@@ -6,7 +6,7 @@ $startTime = microtime(true);
 
 $palindroms = [];
 for ($i = 100; $i <= 999; $i++) {
-    for($j = 100; $j <= 999; $j++) {
+    for($j = $i; $j <= 999; $j++) {
         $production = $i * $j;
         if (isPalindrome($production)) {
             $palindroms[] = $production;
