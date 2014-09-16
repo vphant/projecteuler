@@ -5,7 +5,7 @@
 </head>
 <body>
     <ul>
-        <li><a href="/problem016.php">Problem 016</a></li>
+        <li><a href="/problem/problem016.php">Problem 016</a></li>
     </ul>
 </body>
 </html>
