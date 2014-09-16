@@ -1,4 +1,4 @@
 projecteuler
 ============
 
-projecteuler.net tasks
+projecteuler.net problems
