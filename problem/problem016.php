@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Power digit sum
+ * https://projecteuler.net/problem=16
+ */
+
 require '../show_answer.php';
 
 $startTime = microtime(true);

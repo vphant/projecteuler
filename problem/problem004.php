@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Largest palindrome product
+ * https://projecteuler.net/problem=4
+ */
+
 require '../show_answer.php';
 
 $startTime = microtime(true);
