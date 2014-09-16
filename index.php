@@ -4,8 +4,14 @@
     <title>https://projecteuler.net</title>
 </head>
 <body>
-    <ul>
-        <li><a href="/problem/problem016.php">Problem 016</a></li>
-    </ul>
+<ul>
+    <?php
+    foreach (glob(__DIR__ . "/problem/*.php") as $filename) {
+        $name = pathinfo($filename, PATHINFO_FILENAME);
+        printf('<li><a href="/problem/%s">%s</a></li>', $name . '.php', $name);
+    }
+
+    ?>
+</ul>
 </body>
 </html>
