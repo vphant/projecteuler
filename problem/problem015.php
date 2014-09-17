@@ -21,7 +21,7 @@ function initGrid($size)
     $grid = [];
     for ($i = 1; $i <= $size + 1; $i++) {
         for ($j = 1; $j <= $size + 1; $j++) {
-            $grid[$i][$j] = $i . '-' . $j;
+            $grid[$i][$j] = '';
         }
     }
 
@@ -35,9 +35,7 @@ function makePathTree($grid)
 
     $score = 0;
     $tree = [
-        'x' => $x,
-        'y' => $y,
-        'children' => getChildren($grid, $x, $y, $score)
+        getChildren($grid, $x, $y, $score)
     ];
 
     return $score;
@@ -51,18 +49,14 @@ function getChildren($grid, $x, $y, &$score)
     if (isset($grid[$x][$y + 1])) {
         $children[] =
             [
-                'x' => $x,
-                'y' => $y + 1,
-                'children' => getChildren($grid, $x, $y + 1, $score)
+                getChildren($grid, $x, $y + 1, $score)
             ];
     }
 
     if (isset($grid[$x + 1][$y])) {
         $children[] =
             [
-                'x' => $x + 1,
-                'y' => $y,
-                'children' => getChildren($grid, $x + 1, $y, $score)
+                getChildren($grid, $x + 1, $y, $score)
             ];
     }
 
