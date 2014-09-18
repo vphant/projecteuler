@@ -1,63 +1,35 @@
 <?php
 
-// ini_set('xdebug.var_display_max_depth', 10);
-
 /**
  * Lattice paths
  * https://projecteuler.net/problem=15
  */
 
+set_time_limit(65);
 require '../show_answer.php';
+const SIZE = 15;
 
 $startTime = microtime(true);
 
-$grid = initGrid(10);
-$result = makePathTree($grid);
+$x = 1;
+$y = 1;
+
+$score = 0;
+findChildren($x, $y, $score);
+$result = $score + 1;
 
 showAnswer($result, $startTime);
 
-function initGrid($size)
-{
-    $grid = [];
-    for ($i = 1; $i <= $size + 1; $i++) {
-        for ($j = 1; $j <= $size + 1; $j++) {
-            $grid[$i][$j] = '';
-        }
-    }
-
-    return $grid;
-}
-
-function makePathTree($grid)
-{
-    $x = 1;
-    $y = 1;
-
-    $score = 0;
-    $tree = [
-        getChildren($grid, $x, $y, $score)
-    ];
-
-    return $score;
-}
-
-
-function getChildren($grid, $x, $y, &$score)
+function findChildren($x, $y, &$score)
 {
     $children = false;
 
-    if (isset($grid[$x][$y + 1])) {
-        $children[] =
-            [
-                getChildren($grid, $x, $y + 1, $score)
-            ];
+    if ($y + 1 != SIZE + 1) {
+        findChildren($x, $y + 1, $score);
     }
 
-    if (isset($grid[$x + 1][$y])) {
-        $children[] =
-            [
-                getChildren($grid, $x + 1, $y, $score)
-            ];
+    if ($x + 1 != SIZE + 1) {
+        findChildren($x + 1, $y, $score);
     }
 
     if ($children === false) {
@@ -66,4 +38,3 @@ function getChildren($grid, $x, $y, &$score)
 
     return $children;
 }
-
