@@ -7,7 +7,7 @@
 
 set_time_limit(65);
 require '../show_answer.php';
-const SIZE = 15;
+const SIZE = 10;
 
 $startTime = microtime(true);
 
